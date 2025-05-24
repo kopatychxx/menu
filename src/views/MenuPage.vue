@@ -12,37 +12,19 @@
 import { ref, computed } from 'vue';
 import DishCard from '@/components/DishCard.vue';
 import FilterBar from '@/components/FilterBar.vue';
+import { menuData } from '@/store/MenuData'
 
-const selectedCategory = ref('Все');
 
-const dishes = [
-  {
-    id: 1,
-    name: 'Солянка',
-    description: 'Густой суп с мясом и маслинами.',
-    category: 'Первое',
-    image: 'https://source.unsplash.com/400x300/?soup',
-  },
-  {
-    id: 2,
-    name: 'Пюре с бифстрогановом',
-    description: 'Картофельное пюре и нежная говядина.',
-    category: 'Второе',
-    image: 'https://source.unsplash.com/400x300/?beef',
-  },
-  {
-    id: 3,
-    name: 'Бургер',
-    description: 'Классический бургер с сыром и беконом.',
-    category: 'Фастфуд',
-    image: 'https://source.unsplash.com/400x300/?burger',
-  },
-];
+const selectedCategory = ref('Усі');
 
-const filteredDishes = computed(() => {
-  if (selectedCategory.value === 'Все') return dishes;
-  return dishes.filter((d) => d.category === selectedCategory.value);
-});
+const dishes = menuData
+
+const filteredDishes = computed(() =>
+  selectedCategory.value === 'Усі'
+    ? dishes
+    : dishes.filter(d => d.category === selectedCategory.value)
+)
+
 </script>
 
 <style scoped>
@@ -54,5 +36,7 @@ const filteredDishes = computed(() => {
   flex-wrap: wrap;
   gap: 16px;
   padding: 16px;
+  align-content: center;
+  justify-content: center;
 }
 </style>

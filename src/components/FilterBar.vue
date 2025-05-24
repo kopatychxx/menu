@@ -12,7 +12,7 @@
 </template>
 <!-- eslint-disable -->
 <script setup>
-const categories = ['Все', 'Первое', 'Второе', 'Фастфуд'];
+const categories = ['Усі', 'Перше', 'Друге', 'Фастфуд']
 
 const emit = defineEmits(['update:category']);
 
