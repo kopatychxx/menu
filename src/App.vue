@@ -1,11 +1,10 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
   <router-view />
+  <BottomNav />
 </template>
-
+<script setup>
+import BottomNav from '@/components/BottomNav.vue';
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
